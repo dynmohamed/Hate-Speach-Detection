@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hate Speech Detection</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-image: url('/static/speech-background.jpg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: #fff; /* Text color */
+        }
+        h1 {
+            color: #fff; /* Header color */
+        }
+        textarea {
+            width: 100%;
+            max-width: 600px;
+            height: 150px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            resize: none;
+        }
+        button {
+            margin-top: 10px;
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+        .prediction {
+            margin-top: 20px;
+            font-size: 18px;
+            font-weight: bold;
+        }
+        .no-hate {
+            color: #28a745;
+        }
+        .hate {
+            color: #dc3545;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hate Speech Detection</h1>
+    <form action="/predict" method="post">
+        <textarea name="text_input" placeholder="Enter text here..."></textarea><br>
+        <button type="submit">Submit</button>
+    </form>
+    {% if prediction %}
+        <div class="prediction {% if prediction == 'Hate and abusive' %}hate{% else %}no-hate{% endif %}">
+            Prediction: {{ prediction }}
+        </div>
+    {% endif %}
+</body>
+</html>

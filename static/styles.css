@@ -1,0 +1,59 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('/static/speech-background.jpg'); /* Make sure to have this image in your static folder */
+    background-size: cover; /* Cover the entire background */
+    background-repeat: no-repeat; /* Prevent the image from repeating */
+    margin: 0;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #fff; /* Text color */
+}
+
+h1 {
+    color: #fff; /* Header color */
+    margin-bottom: 20px; /* Space below the heading */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Add shadow for better readability */
+}
+
+textarea {
+    width: 100%;
+    max-width: 600px;
+    height: 150px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    resize: none; /* Prevent resizing */
+}
+
+button {
+    margin-top: 10px;
+    padding: 10px 20px;
+    background-color: #28a745; /* Button color */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s; /* Smooth transition effect */
+}
+
+button:hover {
+    background-color: #218838; /* Darker button color on hover */
+}
+
+.prediction {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.no-hate {
+    color: #28a745; /* Color for "No hate" prediction */
+}
+
+.hate {
+    color: #dc3545; /* Color for "Hate and abusive" prediction */
+}
